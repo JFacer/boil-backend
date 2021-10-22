@@ -1,0 +1,50 @@
+{
+  "name": "walk27",
+  "version": "0.0.27",
+  "private": true,
+  "engines": {
+    "node": ">=10.x"
+  },
+  "scripts": {
+    "start": "cross-env DEBUG=app:* NODE_ENV=development nodemon server.js",
+    "test": "cross-env NODE_ENV=test babel-tape-runner test/test-*.js",
+    "pretest": "eslint . ",
+    "prod": "pm2-runtime start ecosystem.config.js --env production"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.0.0",
+    "cookie-parser": "~1.4.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.19.0",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.3.14",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "2.0.0-beta11",
+    "util": "^0.12.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "babel-tape-runner": "^3.0.0",
+    "eslint": "~5.16.0",
+    "eslint-config-prettier": "~4.3.0",
+    "eslint-plugin-prettier": "~3.1.0",
+    "prettier": "~1.17.1",
+    "debug": "~2.6.9",
+    "nodemon": "1.19.0",
+    "grunt": "^1.0.3",
+    "grunt-concurrent": "^3.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-nodemon": "^0.5.4",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-express-server": "^0.5.4"
+  }
+}
