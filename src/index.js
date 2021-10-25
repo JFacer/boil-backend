@@ -4,28 +4,29 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('workspace:server');
-var http = require('http');
+var app = require('./app');
+var config = require('./config/config');
+var logger = require('./config/logger');
+var mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var port = normalizePort(config.PORT || '3000'); // normalizePort(process.env.PORT || '3000');
+    app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+let server; // = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server = app.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -86,5 +87,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  logger.info('Listening on ' + bind);
 }

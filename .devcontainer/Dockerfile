@@ -9,8 +9,9 @@ RUN apt-get install git
 
 #RUN mkdir /workspace/
 #COPY ./package.json /workspace/
-#RUN npm install 
-RUN npm install -g express-generator
+RUN npm install -g nodemon
+RUN npm install 
+#RUN npm install -g express-generator
 #RUN npm install -g npm typescript --no-cache
 #RUN npm install -g @angular/cli
 
