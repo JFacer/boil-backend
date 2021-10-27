@@ -108,7 +108,7 @@ module.exports = {
   //url : 'mongodb://<dbuser>:<dbpassword>@novus.modulusmongo.net:27017/<dbName>'
   env: oEnv.NODE_ENV,
   port: oEnv.PORT,
-  mongoose: {
+  mongo: {
     url: oEnv.MONGODB_URL,
     options: {
       useCreateIndex: true,

@@ -1,7 +1,9 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
-//const 
+const {config} = require('./config/config');
+const { logger } = require('./config/logger');
+const Routes = require('./routes/index'); 
 
 const init = async () => {
 
@@ -10,13 +12,18 @@ const init = async () => {
         host: 'localhost'
     });
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: (req,h) => {
-            return 'Response from server';
+    await server.register({
+        plugin: require('hapi-mongodb'),
+        options: {
+            uri: '',
+            settings: {
+                useUnifiedTopology: true
+            },
+            decorate: true
         }
     });
+
+    server.route(Routes);
 
     await server.start();
     console.log('Server is runnig on %s', server.info.uri);
