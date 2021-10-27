@@ -2,7 +2,7 @@
 FROM node:14.18.1-buster as node-dev
 
 # Install Tools
-RUN apt-get update
+#RUN apt-get update
 RUN apt-get install git
 # Increase number of os watched files
 #RUN bash -c 'echo "fs.inotify.max_user_watches=635199" >> /etc/sysctl.conf'
