@@ -1,7 +1,7 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
-const {config} = require('./config/config');
+const config = require('./config/config');
 const { logger } = require('./config/logger');
 const Routes = require('./routes/index'); 
 
@@ -11,11 +11,12 @@ const init = async () => {
         port: 3000,
         host: 'localhost'
     });
+    console.log ( "config %O ", config.mongo.url);
 
     await server.register({
         plugin: require('hapi-mongodb'),
         options: {
-            uri: '',
+            uri: config.mongo.url,
             settings: {
                 useUnifiedTopology: true
             },

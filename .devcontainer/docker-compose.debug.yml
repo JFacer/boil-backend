@@ -16,6 +16,10 @@ services:
       
   mongodb:
     image: mongo:4.2.1-bionic
+    environment:
+      - MONGO_INIT_DATABASE=boil-test
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=acb1234
     ports:
       - '27017:27017'
     volumes:

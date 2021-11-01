@@ -101,7 +101,7 @@ if (env == "development") {
 
 oEnv.MONGODB_URL = `mongodb://${oEnv.MONGODB_USER}:${oEnv.MONGODB_PASS}@${oEnv.MONGODB_HOST}:${oEnv.MONGODB_PORT}`;
 oEnv.MONGODB_URL = oEnv.MONGODB_URL + "/" + (oEnv.NODE_ENV === 'production' ? oEnv.MONGODB_BASE : oEnv.MONGODB_BASE + '_test');
-oEnv.MONGODB_URL = oEnv.MONGODB_URL + "?authenticationMechanisms=DEFAULT";
+oEnv.MONGODB_URL = oEnv.MONGODB_URL + "?authenticationMechanisms=DEFAULT&authenticationDatabase=admin";
 //debug(oEnv);
 
 module.exports = {
