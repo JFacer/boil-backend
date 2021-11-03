@@ -1,0 +1,24 @@
+### Find all movies
+GET http://localhost:3000/movies
+
+### Insert new movies
+POST http://localhost:3000/movies HTTP/1.1
+content-Type: application/json
+
+{
+    "title": "Avengers: Endgame",
+    "plot": "The Avengers save the day",
+    "cast": ["Robert", "Chris", "Scarlett"],
+    "year": 2019
+}
+
+### Update year in movie
+PUT http://localhost:3000/movies/61805ec9f4597a7e05ebd4a3 HTTP/1.1
+content-Type: application/json
+
+{
+    "year": 2019
+}
+
+### Delete movie
+DELETE http://localhost:3000/movies/6183036b67cc19eb5aa7d7cb HTTP/1.1

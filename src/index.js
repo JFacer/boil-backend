@@ -16,10 +16,8 @@ const init = async () => {
     await server.register({
         plugin: require('hapi-mongodb'),
         options: {
-            uri: config.mongo.url,
-            settings: {
-                useUnifiedTopology: true
-            },
+            url: config.mongo.url,
+            settings: config.mongo.options,
             decorate: true
         }
     });
